@@ -11,13 +11,13 @@ public class HelloController {
 	
 	@RequestMapping(value = "/hello", method = RequestMethod.GET)
 	@ResponseBody
-	public String Hello() {
+	public String hello() {
 		return "Hello";
 	}
 	
 	@RequestMapping(value = "/hello/{name}", method = RequestMethod.GET)
 	@ResponseBody
-	public String Hello(@PathVariable String name) {
+	public String hello(@PathVariable String name) {
 		return "Hello " + name;
 	}
 }
