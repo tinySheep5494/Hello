@@ -1,8 +1,7 @@
 package com.chenyu.repository;
 
-public class FoodRepository {
+import com.chenyu.entity.Food;
+
+public interface FoodRepository extends BaseRepostory<Food, Long> {
 	
-	static {
-		
-	}
 }

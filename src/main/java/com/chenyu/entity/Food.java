@@ -1,40 +1,24 @@
 package com.chenyu.entity;
 
 import java.io.Serializable;
-import java.sql.Timestamp;
 
 public class Food implements Serializable {
 	private static final long serialVersionUID = 1L;
-	
+
 	private Long id;
-	
+
 	private String name;
-	
-	private String state;
-	
-	private Timestamp createTime;
-	
-	private Timestamp updateTime;
+
+	private Double price;
+
+	private Integer calorie;
+
+	private Integer hunger;
+
+	private Integer happiness;
 
 	public Food() {
 		super();
-	}
-
-	public Food(String name, String state, Timestamp createTime, Timestamp updateTime) {
-		super();
-		this.name = name;
-		this.state = state;
-		this.createTime = createTime;
-		this.updateTime = updateTime;
-	}
-
-	public Food(Long id, String name, String state, Timestamp createTime, Timestamp updateTime) {
-		super();
-		this.id = id;
-		this.name = name;
-		this.state = state;
-		this.createTime = createTime;
-		this.updateTime = updateTime;
 	}
 
 	public Long getId() {
@@ -53,28 +37,35 @@ public class Food implements Serializable {
 		this.name = name;
 	}
 
-	public String getState() {
-		return state;
+	public Double getPrice() {
+		return price;
 	}
 
-	public void setState(String state) {
-		this.state = state;
+	public void setPrice(Double price) {
+		this.price = price;
 	}
 
-	public Timestamp getCreateTime() {
-		return createTime;
+	public Integer getCalorie() {
+		return calorie;
 	}
 
-	public void setCreateTime(Timestamp createTime) {
-		this.createTime = createTime;
+	public void setCalorie(Integer calorie) {
+		this.calorie = calorie;
 	}
 
-	public Timestamp getUpdateTime() {
-		return updateTime;
+	public Integer getHunger() {
+		return hunger;
 	}
 
-	public void setUpdateTime(Timestamp updateTime) {
-		this.updateTime = updateTime;
+	public void setHunger(Integer hunger) {
+		this.hunger = hunger;
 	}
 
+	public Integer getHappiness() {
+		return happiness;
+	}
+
+	public void setHappiness(Integer happiness) {
+		this.happiness = happiness;
+	}
 }

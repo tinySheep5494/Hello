@@ -28,9 +28,11 @@ public class RemoteHelloController {
 	@RequestMapping("/remote/hello/{name}")
 	@ResponseBody
 	public String remote_hello(@PathVariable String name) {
-		String targetUrl = host + "/api/hello/{name}";
+		System.out.println("remote hello " + name + " method");
+		String targetUrl = host + "/api/hello/{unm}";
+		String unm = name;
 		RestTemplate restTemplate = new RestTemplate();
-		String result = restTemplate.getForObject(targetUrl, String.class, name);
+		String result = restTemplate.getForObject(targetUrl, String.class, unm);
 		return result;
 	}
 
