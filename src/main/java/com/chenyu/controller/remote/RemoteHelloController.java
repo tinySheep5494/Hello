@@ -1,5 +1,7 @@
 package com.chenyu.controller.remote;
 
+import javax.annotation.Resource;
+
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -12,6 +14,9 @@ import com.chenyu.constants.UrlConstants;
 @Controller
 public class RemoteHelloController {
 
+	@Resource
+	RestTemplate restTemplate;
+	
 	@Value("${hello.host}")
 	private String host;
 
@@ -20,7 +25,6 @@ public class RemoteHelloController {
 	public String remote_hello() {
 		System.out.println("remote hello method");
 		String targetUrl = host + "/api/hello";
-		RestTemplate restTemplate = new RestTemplate();
 		String result = restTemplate.getForObject(targetUrl, String.class);
 		return result;
 	}
@@ -31,7 +35,6 @@ public class RemoteHelloController {
 		System.out.println("remote hello " + name + " method");
 		String targetUrl = host + "/api/hello/{unm}";
 		String unm = name;
-		RestTemplate restTemplate = new RestTemplate();
 		String result = restTemplate.getForObject(targetUrl, String.class, unm);
 		return result;
 	}
