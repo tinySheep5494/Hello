@@ -3,29 +3,30 @@ package com.chenyu.controller;
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.chenyu.constants.UrlConstants;
 import com.chenyu.entity.Food;
-import com.chenyu.repository.FoodRepository;
+import com.chenyu.service.FoodService;
+import com.chenyu.util.Page;
 
 @Controller
 public class FoodController {
 
 	@Resource
-	private FoodRepository foodRepo;
+	private FoodService foodService;
 	
-	@RequestMapping(value = "/food", method = RequestMethod.GET)
+	@RequestMapping(UrlConstants.FOOD_ID)
 	@ResponseBody
-	public Food food() {
-		Food food = new Food();
-		food.setId(1L);
-		food.setName("bread");
-		food.setCalorie(120);
-		food.setPrice(3.50D);
-		food.setHunger(10);
-		food.setHappiness(5);
-		return food;
+	public Food food(@PathVariable Long id) {
+		return foodService.findone(id);
+	}
+	
+	@RequestMapping(UrlConstants.FOOD)
+	@ResponseBody
+	public Page<Food> food() {
+		return foodService.findall();
 	}
 }

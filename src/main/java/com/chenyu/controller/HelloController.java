@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.chenyu.constants.UrlConstants;
+
 @Controller
 public class HelloController {
 	
@@ -15,7 +17,7 @@ public class HelloController {
 		return "Hello";
 	}
 	
-	@RequestMapping(value = "/hello/{name}", method = RequestMethod.GET)
+	@RequestMapping(value = UrlConstants.HELLO_NAME, method = RequestMethod.GET)
 	@ResponseBody
 	public String hello(@PathVariable String name) {
 		return "Hello " + name;

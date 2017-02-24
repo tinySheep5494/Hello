@@ -13,7 +13,6 @@ public class ApiHelloController {
 	@RequestMapping(UrlConstants.API_HELLO)
 	@ResponseBody
 	public String api_hello() {
-		System.out.println("api hello method");
 		return "Hello";
 	}
 	

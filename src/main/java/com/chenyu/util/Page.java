@@ -12,6 +12,12 @@ public class Page<T extends Serializable> {
 		super();
 	}
 
+	public Page(Integer total, List<T> content) {
+		super();
+		this.total = total;
+		this.content = content;
+	}
+
 	public Integer getTotal() {
 		return total;
 	}
