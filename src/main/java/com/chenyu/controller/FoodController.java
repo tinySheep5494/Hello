@@ -1,5 +1,7 @@
 package com.chenyu.controller;
 
+import java.util.Map;
+
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Controller;
@@ -28,5 +30,11 @@ public class FoodController {
 	@ResponseBody
 	public Page<Food> food() {
 		return foodService.findall();
+	}
+	
+	@RequestMapping(UrlConstants.FOOD_SIMPLE)
+	@ResponseBody
+	public Map<Long, String> foodSimpleList() {
+		return foodService.simpleMap();
 	}
 }

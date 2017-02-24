@@ -1,6 +1,8 @@
 package com.chenyu.service.impl;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
 
@@ -25,5 +27,15 @@ public class FoodServiceImpl implements FoodService {
 	public Page<Food> findall() {
 		List<Food> foodList = foodRepo.findall();
 		return new Page<Food>(foodList.size(), foodList);
+	}
+
+	@Override
+	public Map<Long, String> simpleMap() {
+		List<Food> foodList = foodRepo.findall();
+		Map<Long, String> simpleMap = new HashMap<Long, String>();
+		for (Food food : foodList) {
+			simpleMap.put(food.getId(), food.getName());
+		}
+		return simpleMap;
 	}
 }
