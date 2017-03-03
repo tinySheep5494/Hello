@@ -20,7 +20,7 @@ public class FoodServiceImpl implements FoodService {
 	private FoodRepository foodRepo;
 	
 	public Food findone(Long id) {
-		return foodRepo.findone(id);
+		return foodRepo.findOne(id);
 		
 	}
 	

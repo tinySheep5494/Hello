@@ -12,7 +12,7 @@ import com.chenyu.repository.FoodRepository;
 public class FoodRepositoryImpl implements FoodRepository {
 
 	@Override
-	public Food findone(Long id) {
+	public Food findOne(Long id) {
 		if (id != null) {
 			List<Food> foodList = this.findall();
 			for (Food food : foodList) {

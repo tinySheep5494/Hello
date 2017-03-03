@@ -5,7 +5,7 @@ import java.util.List;
 import com.chenyu.domain.Food;
 
 public interface FoodRepository extends BaseRepostory<Food, Long> {
-	Food findone(Long id);
+	Food findOne(Long id);
 	
 	List<Food> findall();
 }
