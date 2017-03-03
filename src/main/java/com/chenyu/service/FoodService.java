@@ -2,7 +2,7 @@ package com.chenyu.service;
 
 import java.util.Map;
 
-import com.chenyu.entity.Food;
+import com.chenyu.domain.Food;
 import com.chenyu.util.Page;
 
 public interface FoodService {

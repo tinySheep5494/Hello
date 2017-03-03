@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.chenyu.constants.UrlConstants;
-import com.chenyu.entity.Food;
+import com.chenyu.domain.Food;
 import com.chenyu.service.FoodService;
 import com.chenyu.util.Page;
 

@@ -5,7 +5,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
-import com.chenyu.entity.Food;
+import com.chenyu.domain.Food;
 import com.chenyu.repository.FoodRepository;
 
 @Repository

@@ -8,7 +8,7 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
-import com.chenyu.entity.Food;
+import com.chenyu.domain.Food;
 import com.chenyu.repository.FoodRepository;
 import com.chenyu.service.FoodService;
 import com.chenyu.util.Page;

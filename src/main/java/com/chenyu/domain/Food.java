@@ -1,25 +1,40 @@
-package com.chenyu.entity;
+package com.chenyu.domain;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "IT_FOOD")
 public class Food implements Serializable {
 	private static final long serialVersionUID = 1L;
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "ID", unique = true, nullable = false, precision = 8)
 	private Long id;
 
+	@Column(name = "NAME", nullable = false)
 	private String name;
 
+	@Column(name = "ICON", nullable = false)
 	private String icon;
 
+	@Column(name = "PRICE", nullable = false)
 	private Double price;
 
+	@Column(name = "CALORIE", nullable = false)
 	private Integer calorie;
 
+	@Column(name = "HUNGER", nullable = false)
 	private Integer hunger;
 
+	@Column(name = "HAPPINESS", nullable = false)
 	private Integer happiness;
 
 	public Food() {
