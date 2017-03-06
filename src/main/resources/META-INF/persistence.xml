@@ -1,0 +1,6 @@
+<persistence xmlns="http://java.sun.com/xml/ns/persistence" version="2.0">
+	<persistence-unit name="defaultPU" transaction-type="RESOURCE_LOCAL">
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+		<!-- 以包含persistence.xml的jar文件为基准的相对路径,添加额外的jar文件.(可选) -->
+	</persistence-unit>
+</persistence> 

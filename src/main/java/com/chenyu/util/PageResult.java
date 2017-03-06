@@ -3,34 +3,34 @@ package com.chenyu.util;
 import java.io.Serializable;
 import java.util.List;
 
-public class Page<T extends Serializable> {
-	private Integer total;
+public class PageResult<T extends Serializable> {
+	private Long size;
 
-	private List<T> content;
+	private List<T> page;
 
-	public Page() {
+	public PageResult() {
 		super();
 	}
 
-	public Page(Integer total, List<T> content) {
+	public PageResult(Long size, List<T> page) {
 		super();
-		this.total = total;
-		this.content = content;
+		this.size = size;
+		this.page = page;
 	}
 
-	public Integer getTotal() {
-		return total;
+	public Long getSize() {
+		return size;
 	}
 
-	public void setTotal(Integer total) {
-		this.total = total;
+	public void setSize(Long size) {
+		this.size = size;
 	}
 
-	public List<T> getContent() {
-		return content;
+	public List<T> getPage() {
+		return page;
 	}
 
-	public void setContent(List<T> content) {
-		this.content = content;
+	public void setPage(List<T> page) {
+		this.page = page;
 	}
 }
