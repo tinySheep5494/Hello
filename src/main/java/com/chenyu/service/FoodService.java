@@ -1,14 +1,41 @@
-package com.chenyu.service;
+package com.chenyu.service.impl;
 
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
+import javax.annotation.Resource;
+
+import org.springframework.stereotype.Service;
+
 import com.chenyu.domain.Food;
+import com.chenyu.repository.FoodRepository;
+import com.chenyu.service.FoodService;
 import com.chenyu.util.Page;
 
-public interface FoodService {
-	Food findone(Long id);
+@Service
+public class FoodServiceImpl implements FoodService {
 	
-	Page<Food> findall();
+	@Resource
+	private FoodRepository foodRepo;
 	
-	Map<Long, String> simpleMap(); 
+	public Food findone(Long id) {
+		return foodRepo.findOne(id);
+		
+	}
+	
+	public Page<Food> findall() {
+		List<Food> foodList = foodRepo.findall();
+		return new Page<Food>(foodList.size(), foodList);
+	}
+
+	@Override
+	public Map<Long, String> simpleMap() {
+		List<Food> foodList = foodRepo.findall();
+		Map<Long, String> simpleMap = new HashMap<Long, String>();
+		for (Food food : foodList) {
+			simpleMap.put(food.getId(), food.getName());
+		}
+		return simpleMap;
+	}
 }
