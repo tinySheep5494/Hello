@@ -201,6 +201,17 @@
 			<artifactId>poi-ooxml</artifactId>
 			<version>3.9</version>
 		</dependency>
+		<!-- File Upload -->
+		<dependency>
+			<groupId>commons-fileupload</groupId>
+			<artifactId>commons-fileupload</artifactId>
+			<version>${commons-fileupload.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>${commons-io.version}</version>
+		</dependency>
 	</dependencies>
 
 	<properties>
@@ -212,5 +223,7 @@
 		<persistence-api.version>2.1</persistence-api.version>
 		<hibernate.version>4.3.10.Final</hibernate.version>
 		<druid.version>1.0.13</druid.version>
+		<commons-fileupload.version>1.2.2</commons-fileupload.version>
+		<commons-io.version>2.0.1</commons-io.version>
 	</properties>
 </project>

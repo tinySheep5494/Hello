@@ -9,7 +9,9 @@ public class UrlConstants {
 	public static final String REMOTE_HELLO_NAME = "/remote/hello/{name}";
 	
 	public static final String FOOD = "/food";
+	public static final String FOOD_PAGE = "/food/page";
 	public static final String FOOD_ID = "/food/{id}";
 	public static final String FOOD_SIMPLE = "/food/simple";
 	public static final String FOOD_UPLOAD = "/food/upload";
+	public static final String FOOD_DOWNLOAD = "/food/download";
 }
