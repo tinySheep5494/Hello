@@ -43,6 +43,9 @@ public class FoodController {
 	@RequestMapping(UrlConstants.FOOD_PAGE)
 	@ResponseBody
 	public PageResult<Food> food(final Integer pageNumber, final Integer pageSize) {
+		if (pageNumber == null || pageSize == null) {
+			return null;
+		}
 		Page<Food> page = foodService.page(new PageRequest(pageNumber - 1, pageSize), new Specification<Food>() {
 			@Override
 			public Predicate toPredicate(Root<Food> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
@@ -60,8 +63,11 @@ public class FoodController {
 
 	@RequestMapping(UrlConstants.FOOD_UPLOAD)
 	@ResponseBody
-	public String upload(@RequestParam MultipartFile multipartFile, HttpServletRequest httpServletRequest,
+	public String upload(MultipartFile multipartFile, HttpServletRequest httpServletRequest,
 			HttpServletResponse httpServletResponse) {
+		if (multipartFile == null) {
+			return null;
+		}
 		try {
 			SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyyMMdd");
 			String path = "/WEB-INF/upload/" + simpleDateFormat.format(new Date());
