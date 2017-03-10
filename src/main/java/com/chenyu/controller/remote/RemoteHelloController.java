@@ -28,7 +28,7 @@ public class RemoteHelloController {
 		return result;
 	}
 
-	@RequestMapping("/remote/hello/{name}")
+	@RequestMapping(UrlConstants.REMOTE_HELLO_NAME)
 	@ResponseBody
 	public String remote_hello(@PathVariable String name) {
 		String targetUrl = host + "/api/hello/{unm}";

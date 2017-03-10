@@ -36,29 +36,26 @@ public class FoodService {
 		return foodRepo.findAll(spec, pageRequest);
 	}
 
+	/**
+	 * 将excel文件(.xls/.xlsx)读入数据库
+	 * 文件格式：首行为标题，第一列ID(不读入数据库)，第二列为名称，第三列为图标，第四列为价格，第五列为热量，第六列为饱食度，第七列为满意度
+	 * 
+	 * 得到文件对象，根据文件格式(后缀)读入Workbook，转化为Iterable对象，存入数据库
+	 * @param file
+	 * @return
+	 */
 	@Transactional(rollbackFor = Exception.class)
 	public boolean readIn(File file) {
-		System.out.println(1);
 		InputStream inputStream = null;
-		System.out.println(1);
 		HSSFWorkbook hssfWorkbook;
-		System.out.println(1);
 		XSSFWorkbook xssfWorkbook;
-		System.out.println(1);
 		String fileSuffix = file.getName().substring(file.getName().lastIndexOf("."));
-		System.out.println(1);
 		List<Food> foods = null;
-		System.out.println(1);
 		try {
-			System.out.println(2);
 			try {
-				System.out.println(3);
 				foods = new ArrayList<Food>();
-				System.out.println(3);
 				inputStream = new FileInputStream(file);
-				System.out.println(3);
 				Sheet sheet0;
-				System.out.println(3);
 				if (".xls".equals(fileSuffix)) {
 					hssfWorkbook = new HSSFWorkbook(inputStream);
 					sheet0 = hssfWorkbook.getSheetAt(0);
@@ -68,7 +65,6 @@ public class FoodService {
 				} else {
 					return false;
 				}
-				System.out.println(3);
 				for (Row row : sheet0) {
 					/*
 					 * col1:Name col2:Icon col3:Price col4:Calorie col5:Hunger
@@ -87,7 +83,6 @@ public class FoodService {
 					food.setHappiness((int) row.getCell(6).getNumericCellValue());
 					foods.add(food);
 				}
-				System.out.println(3);
 				foodRepo.save(foods);
 				return true;
 			} finally {
@@ -100,6 +95,14 @@ public class FoodService {
 		}
 	}
 
+	/**
+	 * 数据库数据全部导出
+	 * 文件格式：首行为标题，第一列ID(不读入数据库)，第二列为名称，第三列为图标，第四列为价格，第五列为热量，第六列为饱食度，第七列为满意度
+	 * 
+	 * 从数据库读出数据Iterable对象，存入新建的Workbook对象，生成指定路径文件，将Workbook写入文件输出流
+	 * @param path
+	 * @return
+	 */
 	@SuppressWarnings("resource")
 	@Transactional(rollbackFor = Exception.class)
 	public boolean writeOut(String path) {

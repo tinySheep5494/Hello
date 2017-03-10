@@ -22,7 +22,7 @@ public class ApiHelloController {
 		return "Hello";
 	}
 	
-	@RequestMapping("/api/hello/{name}")
+	@RequestMapping(UrlConstants.API_HELLO_NAME)
 	@ResponseBody
 	public String api_hello(@PathVariable String name, HttpServletRequest request) {
 		String requestRemoteAddr = request.getRemoteAddr();
