@@ -11,4 +11,5 @@ public class UrlConstants {
 	public static final String FOOD = "/food";
 	public static final String FOOD_ID = "/food/{id}";
 	public static final String FOOD_SIMPLE = "/food/simple";
+	public static final String FOOD_UPLOAD = "/food/upload";
 }
