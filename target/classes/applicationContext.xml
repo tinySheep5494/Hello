@@ -31,5 +31,8 @@
 	<!-- 配置文件值导入 -->
 	<context:property-placeholder location="classpath*:application.properties" />
 	
+	<!-- 扫描任务注解 -->
+	<task:annotation-driven/>  
+	
 	<import resource="jpa.xml"/>
 </beans>
