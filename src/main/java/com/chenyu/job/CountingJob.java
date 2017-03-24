@@ -18,10 +18,10 @@ public class CountingJob {
 		System.out.println("定时任务测试-每5分钟输出该提示");
 	}
 
-	@Scheduled(cron = "0 * 9-17 * * ?")
-	public void mail() {
+	@Scheduled(cron = "0/10 * * * * ?")
+	public void mail2() {
 		System.out.println("发邮件开始");
-		mailService.sendMail();
+		mailService.sendMail("ch243698@163.com","test","test");
 		System.out.println("发邮件结束");
 	}
 }
