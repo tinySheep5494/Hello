@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.chenyu.constants.CacheConstants;
 import com.chenyu.constants.UrlConstants;
 import com.chenyu.domain.Food;
 import com.chenyu.service.FoodService;
@@ -52,6 +53,12 @@ public class FoodController {
 			}
 		});
 		return new PageResult<Food>(page.getTotalElements(), page.getContent());
+	}
+	
+	@RequestMapping(UrlConstants.FOOD_POLLING)
+	@ResponseBody
+	public PageResult<Food> polling() {
+		return new PageResult<Food>((long) CacheConstants.FOODS.size(), CacheConstants.FOODS);
 	}
 
 	@RequestMapping(UrlConstants.FOOD_ID)

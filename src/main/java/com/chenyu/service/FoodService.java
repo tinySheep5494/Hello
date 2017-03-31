@@ -35,6 +35,10 @@ public class FoodService {
 	public Page<Food> page(PageRequest pageRequest, Specification<Food> spec) {
 		return foodRepo.findAll(spec, pageRequest);
 	}
+	
+	public Iterable<Food> findAll() {
+		return foodRepo.findAll();
+	}
 
 	/**
 	 * 将excel文件(.xls/.xlsx)读入数据库
