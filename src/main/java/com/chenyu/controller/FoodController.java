@@ -15,7 +15,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.io.FileUtils;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -26,6 +25,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.chenyu.constants.UrlConstants;
 import com.chenyu.domain.Food;
 import com.chenyu.service.FoodService;
+import com.chenyu.util.PageRequest;
 import com.chenyu.util.PageResult;
 
 @Controller
