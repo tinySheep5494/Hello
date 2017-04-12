@@ -46,7 +46,7 @@ public class FoodController {
 		if (pageNumber == null || pageSize == null) {
 			return null;
 		}
-		Page<Food> page = foodService.page(new PageRequest(pageNumber - 1, pageSize), new Specification<Food>() {
+		Page<Food> page = foodService.page(new PageRequest(pageNumber, pageSize), new Specification<Food>() {
 			@Override
 			public Predicate toPredicate(Root<Food> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
 				return null;
@@ -103,11 +103,12 @@ public class FoodController {
 		if (!file.exists())
 			file.mkdirs();
 		String uuid = UUID.randomUUID().toString().replaceAll("-", "");
-		String filePath = realPath + "/" + uuid + ".xls";
+		String filePath = realPath + "\\" + uuid + ".xls";
 		if (foodService.writeOut(filePath)) {
-			return filePath;
+			httpServletResponse.setHeader("Content-disposition", "attachment; filename=" + new File(filePath));
+			return "success";
 		}
-		return null;
+		return "fail";
 	}
 
 }

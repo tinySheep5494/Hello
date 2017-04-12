@@ -17,7 +17,7 @@ public class RemoteHelloController {
 	@Resource
 	RestTemplate restTemplate;
 	
-	@Value("${hello.host}")
+	@Value("${host}")
 	private String host;
 
 	@RequestMapping(UrlConstants.REMOTE_HELLO)
