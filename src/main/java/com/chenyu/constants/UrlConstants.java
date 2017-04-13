@@ -15,4 +15,6 @@ public class UrlConstants {
 	public static final String FOOD_SIMPLE = "/food/simple";
 	public static final String FOOD_UPLOAD = "/food/upload";
 	public static final String FOOD_DOWNLOAD = "/food/download";
+	public static final String API_FOOD_DOWNLOAD = "/api/food/download";
+	public static final String REMOTE_FOOD_DOWNLOAD = "/remote/food/download";
 }

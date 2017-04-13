@@ -15,7 +15,7 @@ public class CountingJob {
 
 	@Scheduled(cron = "0 0/5 * * * ? ")
 	public void time() {
-		System.out.println("定时任务测试-每5分钟输出该提示");
+//		System.out.println("定时任务测试-每5分钟输出该提示");
 	}
 
 	@Scheduled(cron = "0/10 * * * * ?")

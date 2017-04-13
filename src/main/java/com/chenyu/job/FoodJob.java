@@ -17,12 +17,12 @@ public class FoodJob {
 	
 	@Scheduled(cron = "0/30 * * * * ?")
 	public void food() {
-		System.out.println("更新数据开始");
-		CacheConstants.FOODS.clear();
-		for (Food food : FoodService.findAll()) {
-			CacheConstants.FOODS.add(food);
-		}
-		System.out.println("更新数据完成");
+//		System.out.println("更新数据开始");
+//		CacheConstants.FOODS.clear();
+//		for (Food food : FoodService.findAll()) {
+//			CacheConstants.FOODS.add(food);
+//		}
+//		System.out.println("更新数据完成");
 	}
 
 }
