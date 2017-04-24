@@ -103,7 +103,7 @@ public class FoodController {
 		if (!file.exists())
 			file.mkdirs();
 		String uuid = UUID.randomUUID().toString().replaceAll("-", "");
-		String filePath = realPath + "\\" + uuid + ".xls";
+		String filePath = realPath + "/" + uuid + ".xls";
 		if (foodService.writeOut(filePath)) {
 			httpServletResponse.setHeader("Content-disposition", "attachment; filename=" + new File(filePath));
 			return "success";

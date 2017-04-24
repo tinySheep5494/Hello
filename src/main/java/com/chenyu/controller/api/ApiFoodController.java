@@ -32,7 +32,7 @@ public class ApiFoodController {
 		if (!file.exists())
 			file.mkdirs();
 		String uuid = UUID.randomUUID().toString().replaceAll("-", "");
-		String filePath = realPath + "\\" + uuid + ".xls";
+		String filePath = realPath + "/" + uuid + ".xls";
 		byte[] bs = foodService.writeByte(filePath);
 		return bs;
 	}
