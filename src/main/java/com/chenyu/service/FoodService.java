@@ -1,9 +1,7 @@
 package com.chenyu.service;
 
-import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -134,6 +132,9 @@ public class FoodService {
 			row.createCell(4).setCellValue(foods.get(i).getCalorie());
 			row.createCell(5).setCellValue(foods.get(i).getHunger());
 			row.createCell(6).setCellValue(foods.get(i).getHappiness());
+		}
+		for (int i = 0; i < sheet.getRow(0).getPhysicalNumberOfCells(); i++) {
+			sheet.autoSizeColumn(i);
 		}
 		try {
 			FileOutputStream fileOutputStream = new FileOutputStream(path);

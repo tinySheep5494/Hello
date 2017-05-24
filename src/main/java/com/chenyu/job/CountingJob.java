@@ -20,8 +20,8 @@ public class CountingJob {
 
 	@Scheduled(cron = "0/10 * * * * ?")
 	public void mail2() {
-//		System.out.println("发邮件开始");
-//		mailService.sendMail("ch243698@163.com","test","test");
-//		System.out.println("发邮件结束");
+		System.out.println("发邮件开始");
+		mailService.sendMail("ch243698@163.com","test","test","D:\\VMList.xlsx");
+		System.out.println("发邮件结束");
 	}
 }

@@ -1,6 +1,9 @@
 package com.chenyu.controller;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.UUID;
@@ -84,7 +87,6 @@ public class FoodController {
 			String xlsFileName = multipartFile.getOriginalFilename();
 			File xlsFile = new File(realPath + "/" + xlsFileName);
 			FileUtils.copyInputStreamToFile(multipartFile.getInputStream(), xlsFile);
-			System.out.println(xlsFile.getName());
 			if (foodService.readIn(xlsFile)) {
 				return "success";
 			}
@@ -103,9 +105,22 @@ public class FoodController {
 		if (!file.exists())
 			file.mkdirs();
 		String uuid = UUID.randomUUID().toString().replaceAll("-", "");
-		String filePath = realPath + "/" + uuid + ".xls";
+		String filePath = realPath + "\\" + uuid + ".xls";
 		if (foodService.writeOut(filePath)) {
-			httpServletResponse.setHeader("Content-disposition", "attachment; filename=" + new File(filePath));
+			File result = new File(filePath);
+			httpServletResponse.setHeader("Content-disposition", "attachment; filename=food.xls");
+			try {
+				InputStream inputStream = new FileInputStream(result);
+				OutputStream outputStream = httpServletResponse.getOutputStream();
+		        int b;  
+		        while((b=inputStream.read())!= -1)  
+		        {  
+		        	outputStream.write(b);  
+		        }
+		        inputStream.close();
+		        outputStream.close();
+			} catch (Exception e) {
+			}
 			return "success";
 		}
 		return "fail";
